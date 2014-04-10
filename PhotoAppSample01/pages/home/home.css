@@ -50,3 +50,21 @@
     width: 400px;
     word-wrap: break-word;
 }
+
+@media screen and (orientation: portrait) {
+	.homepage section[role=main] {
+		margin-left: 0px;
+	}
+
+	#imageGrid {
+		-ms-grid-columns: auto;
+		-ms-grid-rows: auto auto;
+	}
+
+	#imageInfoContainer {
+		-ms-grid-column: 1;
+		-ms-grid-row: 2;
+		margin-top: 20px;
+		margin-left: 0px;
+	}
+}
