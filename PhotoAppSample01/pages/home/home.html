@@ -5,7 +5,7 @@
     <title>homePage</title>
 
     <!-- WinJS references -->
-    <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
+    <link href="//Microsoft.WinJS.2.0/css/ui-light.css" rel="stylesheet" />
     <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
     <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
 
@@ -19,11 +19,26 @@
         <header aria-label="Header content" role="banner">
             <button data-win-control="WinJS.UI.BackButton"></button>
             <h1 class="titlearea win-type-ellipsis">
-                <span class="pagetitle">Welcome to PhotoAppSample01!</span>
+                <span class="pagetitle">Photo app sample</span>
             </h1>
         </header>
         <section aria-label="Main content" role="main">
-            <p>Content goes here.</p>
+            <div id="contentGrid">
+                <button id="getPhotoButton">Get photo</button>
+                <div id="imageName" class="pageSubheader">Image name</div>
+
+                <div id="imageGrid">
+                    <img id="displayImage" src="#" />
+                    <div id="imageInfoContainer">
+                        <label for="fileName">File name:</label>
+                        <div id="fileName">File name</div>
+                        <label for="path">Path:</label>
+                        <div id="path">Path</div>
+                        <label for="dateCreated">Date created:</label>
+                        <div id="dateCreated">Date created</div>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 </body>
