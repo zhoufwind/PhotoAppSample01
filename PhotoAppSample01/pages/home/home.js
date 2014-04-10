@@ -1,6 +1,7 @@
 ﻿(function () {
     "use strict";
 
+    // Use this object to store info about the loaded image.
     var photoObject = {
         src: null,
         displayName: null,
@@ -29,8 +30,8 @@
             openPicker.fileTypeFilter.append(".jpg");
 
             openPicker.pickSingleFileAsync().done(
-                homepage.prototype.loadImage,
-                homepage.prototype.displayError
+                homePage.prototype.loadImage,
+                homePage.prototype.displayError
                 );
         },
 
@@ -43,6 +44,9 @@
 
                 var imageBlob = URL.createObjectURL(file, { oneTimeOnly: true });
                 photoObject.src = imageBlob;
+
+                var contentGrid = document.getElementById("contentGrid");
+                WinJS.Binding.processAll(contentGrid, photoObject);
             }
         },
 
