@@ -1,3 +1,30 @@
 ﻿.homepage section[role=main] {
-    margin: auto 120px;
+
+}
+
+#contentGrid {
+    display: -ms-grid;
+    -ms-grid-rows: 50px 70px auto;
+    margin: 20px 120px 0px 120px;
+}
+
+#getPhotoButton {
+    -ms-grid-row: 1;
+    width: 120px;
+    height: 20px;
+}
+
+#imageName {
+    -ms-grid-row: 2;
+}
+
+#imageGrid {
+    -ms-grid-row: 3;
+}
+
+.pageSubheader {
+    font-family: 'Segoe UI Light';
+    font-size: 20px;
+    vertical-align: bottom;
+    margin: 0px 0px 40px 0px;
 }
