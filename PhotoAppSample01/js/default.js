@@ -11,6 +11,10 @@
 
     app.addEventListener("activated", function (args) {
         if (args.detail.kind === activation.ActivationKind.launch) {
+
+            // Save the previously execution state.
+            WinJS.Application.sessionState.previousExecutionState = args.detail.previousExecutionState;
+
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
                 // TODO: This application has been newly launched. Initialize
                 // your application here.

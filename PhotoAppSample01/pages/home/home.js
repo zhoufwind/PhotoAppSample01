@@ -16,6 +16,13 @@
         ready: function (element, options) {
             // TODO: Initialize the page here.
             document.getElementById("getPhotoButton").addEventListener("click", this.getPhotoButtonClickHandler, false);
+
+            if (WinJS.Application.sessionState.previousExecutionState === Windows.ApplicationModel.Activation.ApplicationExecutionState.terminated) {
+                var mruToken = WinJS.Application.sessionState.mruToken;
+                if (mruToken) {
+                    Windows.Storage.AccessCache.StorageApplicationPermissions.mostRecentlyUsedList.getFileAsync(mruToken).done(this.loadImage, this.displayError);
+                }
+            }
         },
 
         getPhotoButtonClickHandler: function (eventInfo) {
@@ -47,6 +54,9 @@
 
                 var contentGrid = document.getElementById("contentGrid");
                 WinJS.Binding.processAll(contentGrid, photoObject);
+
+                // Add picked file to MostRecentlyUsedList
+                WinJS.Application.sessionState.mruToken = Windows.Storage.AccessCache.StorageApplicationPermissions.mostRecentlyUsedList.add(file);
             }
         },
 
